@@ -5,6 +5,16 @@ body {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+  color: #f3f3f3;
+}
+
+a:hover {
+  text-decoration: underline #f3f3f3;
+}
+
+
 header {
   position: relative;
   margin: 30px 0;
@@ -91,4 +101,23 @@ header {
   position: absolute;
   bottom: 7px;
   font-size: 20px;
+}
+
+.left-b-align {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.left-b-align span {
+  font-size: 28px;
+  padding: 0 0 0 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .left-b-align {
+    margin: auto;
+    position: absolute;
+    bottom: 0;
+  }
 }
