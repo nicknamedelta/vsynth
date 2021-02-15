@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
-  keyMapper(100, playNotes);
+  keyMapper(200, playNotes);
 });
 
 function keyMapper(keystrokeDelay, callback) {
