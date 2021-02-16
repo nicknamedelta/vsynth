@@ -79,12 +79,14 @@ function wKeyNote(keyNote) {
       return `B${octave} q`;
     case "K":
       return `C${parseInt(octave) + 1} q`;
-    case "L":
+    case "O":
       return `C#${parseInt(octave) + 1} q`;
-    case "P":
+    case "L":
       return `D${parseInt(octave) + 1} q`;
-    case "Z":
+    case "P":
       return `D#${parseInt(octave) + 1} q`;
+    case "Z":
+      return `E${parseInt(octave) + 1} q`;
     default:
       return "- q";
   }
@@ -93,5 +95,5 @@ function wKeyNote(keyNote) {
 function changeRange(newVal) {
   let octVal = document.getElementById("oct-val");
 
-  octVal.innerHTML = `Range: C${newVal} - D#${parseInt(newVal) + 1}`;
+  octVal.innerHTML = `Range: C${newVal} - E${parseInt(newVal) + 1}`;
 }
