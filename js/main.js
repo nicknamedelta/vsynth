@@ -1,8 +1,47 @@
 document.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
+  mouseMapper(200, playNotes);
   keyMapper(200, playNotes);
 });
+
+function mouseMapper(keystrokeDelay, callback) {
+  const keyDown = document.getElementsByClassName("keys");
+
+  keyDown[0].addEventListener("mousedown", (event) => {
+    const key = event.target.dataset.note;
+    const charList = "ADEFGHJKLOPSTUWYZ";
+
+    let lastKeyTime = Date.now();
+    let buffer = [];
+
+    if (charList.indexOf(key) === -1) {
+      return;
+    }
+
+    const currentTime = Date.now();
+
+    if (currentTime - lastKeyTime > keystrokeDelay) {
+      buffer = [];
+    }
+
+    let tKey = wKeyNote(key);
+
+    buffer.push(tKey);
+    lastKeyTime = currentTime;
+
+    if (buffer.length < 2) {
+      let kP = document.querySelector(`.key[data-note="${key}"]`);
+      kP.classList.add("playing");
+
+      callback(buffer);
+
+      setTimeout(function () {
+        kP.classList.remove("playing");
+      }, 200);
+    }
+  });
+}
 
 function keyMapper(keystrokeDelay, callback) {
   const charList = "ADEFGHJKLOPSTUWYZ";
